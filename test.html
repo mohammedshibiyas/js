@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .card{
+      border: 1px solid green;
+      margin: 20px;  
+      display: flex;
+      width: 40%;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.358),rgba(0, 0, 0, 0.358));
+      
+      
+    }
+    .card-title{
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      padding: 0px 10px 0px 10px;
+      /* border: 1px solid black; */
+    }
+    .card-title h4{
+      /* width: 100%; */
+      font-family: sans-serif;
+      /* padding: 10px; */
+    }
+    img{
+      padding-left: 10%;
+      padding-top: 10%;
+      width: 50%;
+   
+
+    }
+  </style>
+</head>
+<body>
+  <div id="cards" class="container">
+    <!-- <div class="card">
+      <div class="image"><img src="./images/rob_pando-6f356379c151a50217e4e81a67f3c22bfba6a759264669aeabfd239701568f63.jpg" alt="">
+      </div>
+     <div class="label">
+      <div class="card-title">
+        <h4>Name</h4>
+        <h4></h4>
+      </div>
+      <div class="card-title">
+        <h4>Email</h4>
+        <h4></h4>
+      </div>
+      <div class="card-title">
+        <h4>Phone</h4>
+        <h4></h4>
+      </div>
+     </div>
+    </div> -->
+  </div>
+  <script>
+    async function myFunction() {
+      try {
+        response=await fetch("https://jsonplaceholder.typicode.com/users")
+        data=await response.json()
+        console.log(data);
+        s=""
+        data.map((dt)=>{
+        
+          console.log(dt.name);
+          s+=`<div class="card">
+            <div class="image"><img src="./images/rob_pando-6f356379c151a50217e4e81a67f3c22bfba6a759264669aeabfd239701568f63.jpg" alt="">
+      </div>
+      <div class="label">
+      <div class="card-title">
+        <h4>Name:</h4>
+        <h4>${dt.name}</h4>
+      </div>
+      <div class="card-title">
+        <h4>Email:</h4>
+        <h4>${dt.email}</h4>
+      </div>
+      <div class="card-title">
+        <h4>Address:</h4>
+        <h4>${dt.address.street}</h4>
+      </div>
+      </div>
+    </div>`
+        })
+        document.getElementById("cards").innerHTML=s;
+      } catch (error) {
+        console.log("error");
+      }
+      
+      
+    }
+    myFunction();
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Germania+One&family=Signika&display=swap');
+
+#count{
+    background-image: url("./images.jpg"),linear-gradient(black,black);
+    height: 100%;
+    text-align: center;
+    margin-left: 12%;
+    margin-top: 20%;
+    letter-spacing: 5px;
+    border: 0px solid ;
+    font-family: 'Germania One', cursive;
+font-family: 'Signika', sans-serif;
+    border-radius: 10px;
+    color: white;
+   justify-content: center; 
+    padding: 60px 10px;
+    width: 60%;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div style="text-align: center;"> 
+     <input type="text" id="date" placeholder="DD-MM-YYYY" onkeyup="myFunction(this)">
+    <span id="str"></span>
+</div>
+<script>
+    let data=document.getElementById("date");
+
+    function myFunction(args) {
+        console.log(args.value);
+        const dt=validate(args.value);
+        console.log(dt);
+        if(dt){
+            document.getElementById("str").innerHTML=dt;
+        }
+        else{
+            document.getElementById("str").innerHTML=dt;
+        }
+
+    }
+    function validate(value){
+        let regx=/(^[012]?\d|3[01])-([0]?\d|1[012])-(\d{4})$/i;
+        let result=regx.test(value);
+        return result?"":"invalid string"
+        console.log(result);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #count{
+        color:chocolate;
+        border: 2px solid burlywood;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+</style>
+<body>
+    <h1 id="count"></h1>
+    <script>
+        function timer(){
+            let dt=new Date();
+            let hr=dt.getHours();
+            let ampm=hr>12?"am":"pm";
+            let time=addZero(hr%12)+":"+addZero(dt.getMinutes())+":"+addZero(dt.getSeconds())+" "+ampm;
+            document.getElementById("count").innerHTML=time;
+            setTimeout(function(){
+                timer();
+            })
+
+        }
+        timer();
+
+        function addZero(param){
+            return param<10?"0"+param:param;
+        }
+    </script>
+</body>
+</html>
