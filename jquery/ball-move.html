@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:yellow;
+            height: 100vh;
+            position: relative;
+        }
+        img{
+            width: 17%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/football-transparent-image-14.png" alt="">
+    <script src="./code.jquery.com_jquery-3.7.1.min.js"></script>
+
+
+    <script >
+        $(document).ready(()=>{
+            left_value=0;
+            top_value=0;
+            $(document).keyup((e)=>{
+            console.log(e.keyCode);
+            k=e.keyCode
+            if(k===39){
+                left_value+=10;
+                $("img").css({"left":left_value})
+            }
+            if(k===37){
+                left_value-=10;
+                $("img").css({"left":left_value})
+
+            }
+            if (k===40) {
+                top_value+=10;
+                $("img").css({"top":top_value})
+            }
+            if(k===38){
+                top_value-=10;
+                $("img").css({"top":top_value})
+
+            }
+            })
+           
+        })
+    </script>
+   
+</body>
+</html>

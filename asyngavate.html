@@ -4,21 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .card{
+            display: flex;
+            gap: 3%;
+        }
+    </style>
 </head>
 <body>
+    <div class="container" id="main">
+       
+    </div>
 <script>
      async function myFunction(){
        try {
             response=await fetch("https://jsonplaceholder.typicode.com/users")
             data=await response.json();
             console.log(data);
+            s="";
            data.map((dt)=>{
-            
+            console.log(dt.name);
+            s+=` <div class="card">
+            <h2>name:</h2>
+            <h2> ${dt.name}</h2>
+            <h2>username:</h2>
+            <h2> ${dt.username}</h2>
+            <h2>email:</h2>
+            <h2> ${dt.email}</h2>
+        </div>`
            })
+           document.getElementById("main").innerHTML=s;
        } catch (error) {
         console.log("error");
        }
     }
+    myFunction()
    </script> 
 </body>
 </html>
