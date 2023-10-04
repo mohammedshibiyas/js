@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="box">
+    <button id="btn" onclick="">click</button>
+    <div class="hell" id="print"></div>
+
+    <script>
+        let obj=[
+        {name:"shibiyas",age:30},
+        {name:"aswan",age:20},
+        {name:"shinfa",age:19},
+        {name:"shamil",age:13}
+    ];
+
+        let x=document.getElementById("btn");
+        let y=document.getElementById("box");
+        let res=document.getElementById("print");
+
+        x.onclick=()=>{
+            console.log(obj);
+
+            task=new Promise((resolve,reject)=>{
+                obj.filter((data)=>{
+                    console.log(data.name);
+
+                    if(data.name==y.value){
+                        resolve(data.name)
+                    }
+                    else{
+                        reject("oops! can't find")
+                    }
+                })
+                   
+
+
+            })
+            task.then((data)=>{
+                        // console.log(data);
+                        res.textContent=data;
+                    })
+                    .catch((error)=>{
+                        // console.log(error);
+                        res.textContent=error;
+                    })  
+
+        }
+
+        
+
+
+    </script>
+</body>
+</html>

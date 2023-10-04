@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Checker</title>
+</head>
+<body>
+
+<label for="wordInput">Enter a word:</label>
+<input type="text" id="wordInput">
+<button onclick="checkWord()">Submit</button>
+
+<script>
+  // Assume you have an object with some words
+  const wordObject = {
+    name: 'shibiyas',
+    class:'synnefo',
+    place:'malappuram',
+    age: '10',
+    // Add more words as needed
+  };
+
+  // Function to check if a word exists in the object
+  function checkWord() {
+    const userInput = document.getElementById('wordInput').value;
+
+    return new Promise((resolve, reject) => {
+      // Simulate an asynchronous operation (e.g., fetching from a database)
+      setTimeout(() => {
+        if (wordObject.hasOwnProperty(userInput)) {
+          resolve('success');
+        } else {
+          reject('reject');
+        }
+      }, 1000); // Simulating a delay of 1 second
+    })
+    .then((result) => {
+      alert(result); // Output: success
+    })
+    .catch((error) => {
+      alert(error); // Output: reject
+    });
+  }
+</script>
+
+</body>
+</html>
